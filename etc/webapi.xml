@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Puntorecogida Tienda -->
+    <route url="/V1/puntorecogidaTienda/:tiendaId" method="GET">
+        <service class="Orangecat\Puntorecogida\Api\TiendaRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="Orangecat_Puntorecogida::tienda"/>
+        </resources>
+    </route>
+    <route url="/V1/puntorecogidaTienda/search" method="GET">
+        <service class="Orangecat\Puntorecogida\Api\TiendaRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Orangecat_Puntorecogida::tienda"/>
+        </resources>
+    </route>
+    <route url="/V1/puntorecogidaTienda" method="POST">
+        <service class="Orangecat\Puntorecogida\Api\TiendaRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Orangecat_Puntorecogida::tienda"/>
+        </resources>
+    </route>
+    <route url="/V1/puntorecogidaTienda/:id" method="PUT">
+        <service class="Orangecat\Puntorecogida\Api\TiendaRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Orangecat_Puntorecogida::tienda"/>
+        </resources>
+    </route>
+    <route url="/V1/puntorecogidaTienda/:tiendaId" method="DELETE">
+        <service class="Orangecat\Puntorecogida\Api\TiendaRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Orangecat_Puntorecogida::tienda"/>
+        </resources>
+    </route>
+</routes>

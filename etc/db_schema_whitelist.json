@@ -1,0 +1,39 @@
+{
+    "puntorecogida_tienda": {
+        "column": {
+            "tienda_id": true,
+            "nombre": true,
+            "direccion": true,
+            "latitud": true,
+            "longitud": true,
+            "localidad": true,
+            "metodoenvio": true,
+            "image": true,
+            "content": true,
+            "posicion": true,
+            "creation_time": true,
+            "update_time": true,
+            "is_active": true
+        },
+        "index": {
+            "PUNTORECOGIDA_TIENDA_NOMBRE_LATITUD_LONGITUD": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "puntorecogida_tienda_store": {
+        "column": {
+            "tienda_id": true,
+            "store_id": true
+        },
+        "index": {
+            "PUNTORECOGIDA_TIENDA_STORE_STORE_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "FK_9281535FF1E272B1355E39799CB10A51": true,
+            "PUNTORECOGIDA_TIENDA_STORE_STORE_ID_STORE_STORE_ID": true
+        }
+    }
+}

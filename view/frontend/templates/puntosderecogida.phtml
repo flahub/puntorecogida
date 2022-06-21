@@ -1,0 +1,47 @@
+<div class="puntosrecogida content">
+    <div class="puntosrecogida cmsblock">
+<?php
+/** @var $block \Orangecat\Puntorecogida\Block\Puntorecogida */
+echo $block->getCmsBlock();
+?>
+    </div>
+<?php
+$puntosderecogida =  $this->getPuntosRecogida();
+if(count($puntosderecogida)>0) {
+    ?>
+     <ul class="puntosrecogida list items puntos-items">
+<?php
+foreach ($puntosderecogida as $punto) {
+    ?>
+    <li class="item punto-item">
+        <p class="name"><?= $punto['nombre'];?></p>
+        <div class="punto-item-info" id="product-item-info_<?= $punto['tienda_id']?>">
+            <?php
+
+            if(isset($punto['image']) && !empty($punto['image'])){
+                ?>
+            <div class="punto-img">
+                <img width="100" src="<?= $this->getImageUrl($punto['image']); ?>" />
+            </div>
+                <?php
+            }
+            ?>
+            <div class="punto-details">
+                <div class="detail">
+                    <p class="direccion"><?= $punto['direccion']?>&nbsp;-&nbsp;<?= $punto['localidad']?></p>
+                    <p class="ubicacion"><span>Latitud:</span>&nbsp;<?= $punto['latitud']?>&nbsp;<span>Longitud:</span>&nbsp;<?= $punto['longitud']?></p>
+                    <p class="metodoenvio">
+                        <?= $this->getMetodoEnvio($punto['metodoenvio']);?>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </li>
+        <?php
+}
+?>
+    </ul>
+        <?php
+}
+?>
+</div>
